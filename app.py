@@ -7,16 +7,16 @@ from models import StockInput
 from DataHandler import DataHandler
 from StockData import StockData
 
-app = flask.Flask(__name__)
+application = flask.Flask(__name__)
 #app =  FastAPI()
 
-@app.route('/')
+@application.route('/')
 def hello():
     msg = "Docker Works"
     return msg
 
 #App routing
-@app.post('/pattern/stock')
+@application.post('/pattern/stock')
 def getstockpattern():
 #async def getstockpattern(inp:StockInput):
     # ticker = inp.ticker
@@ -34,7 +34,7 @@ def getstockpattern():
     return results
 
 if __name__ == "__main__":
-    app.run(host = "0.0.0.0",debug=True)
+    application.run(host = "0.0.0.0",debug=True)
     #uvicorn.run(app,host = "0.0.0.0",port=5000)
 
 
